@@ -5,3 +5,4 @@ const kwhiteColor = Colors.white;
 const kButtonColorBlue = Color.fromARGB(222, 63, 81, 181);
 const kButtonColorWhite = Colors.white;
 const kBlackColor = Colors.black;
+const kGreyColor = Colors.grey;

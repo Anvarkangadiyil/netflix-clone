@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:netflix_clone_app/domain/core/constants.dart';
+import 'package:netflix_clone_app/core/constants.dart';
 
 import 'package:netflix_clone_app/presentation/home/widgets/background_card.dart';
 

@@ -1,8 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:netflix_clone_app/domain/core/colors/colors.dart';
-import 'package:netflix_clone_app/domain/core/constants.dart';
-import 'package:netflix_clone_app/presentation/widgets/app_bar_widgets.dart';
+import 'package:flutter/widgets.dart';
+import 'package:netflix_clone_app/core/colors.dart';
+import 'package:netflix_clone_app/core/constants.dart';
+import 'package:netflix_clone_app/presentation/home/widgets/custom_botton_widgets.dart';
+import 'package:netflix_clone_app/presentation/new_and_hot/widgets/coming_soon_widgets.dart';
+import 'package:netflix_clone_app/presentation/new_and_hot/widgets/everyones_watching_widget.dart';
+import 'package:netflix_clone_app/presentation/widgets/video_widget.dart';
 
 class ScreenNewAndHot extends StatelessWidget {
   const ScreenNewAndHot({super.key});
@@ -85,8 +89,8 @@ class ScreenNewAndHot extends StatelessWidget {
           ),
         ),
         body: TabBarView(children: [
-          _buildTabBarView("coming soon"),
-          _buildTabBarView("every one is watching"),
+          _buildComingSoon(context),
+          _buildEveryonesWatching(),
         ]),
       ),
     );
@@ -95,6 +99,24 @@ class ScreenNewAndHot extends StatelessWidget {
   _buildTabBarView(String name) {
     return Center(
       child: Text(name),
+    );
+  }
+
+  Widget _buildEveryonesWatching() {
+    return ListView.builder(
+      itemCount: 10,
+      itemBuilder: (context, index) {
+        return EveryonesWatching();
+      },
+    );
+  }
+
+  Widget _buildComingSoon(BuildContext context) {
+    return ListView.builder(
+      itemCount: 10,
+      itemBuilder: (context, index) {
+        return ComingSoonWidget();
+      },
     );
   }
 }

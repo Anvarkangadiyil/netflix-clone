@@ -1,7 +1,10 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:netflix_clone_app/domain/core/constants.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netflix_clone_app/application/search/search_bloc.dart';
+import 'package:netflix_clone_app/core/constants.dart';
 import 'package:netflix_clone_app/presentation/search/widgets/title.dart';
 
 const imageUrl =
@@ -20,11 +23,28 @@ class SearchIdleList extends StatelessWidget {
         ),
         kheight,
         Expanded(
-          child: ListView.separated(
-            shrinkWrap: true,
-            itemBuilder: (context, index) => TopSearchItemTile(),
-            separatorBuilder: (context, index) => kheight20,
-            itemCount: 10,
+          child: BlocBuilder<SearchBloc, SearchState>(
+            builder: (context, state) {
+              if (state.isLoading) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (state.isError) {
+                return const Center(
+                  child: Text('Error While getting Search'),
+                );
+              } else if (state.idleList.isEmpty) {
+                return const Center(
+                  child: Text('List is Empty'),
+                );
+              }
+              return ListView.separated(
+                shrinkWrap: true,
+                itemBuilder: (context, index) => const TopSearchItemTile(),
+                separatorBuilder: (context, index) => kheight20,
+                itemCount: state.idleList.length,
+              );
+            },
           ),
         ),
       ],

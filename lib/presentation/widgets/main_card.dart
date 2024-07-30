@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_clone_app/domain/core/constants.dart';
+import 'package:netflix_clone_app/core/constants.dart';
 
 class MainCard extends StatelessWidget {
   const MainCard({

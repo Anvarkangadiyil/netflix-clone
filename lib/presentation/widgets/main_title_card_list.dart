@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:netflix_clone_app/domain/core/constants.dart';
+import 'package:netflix_clone_app/core/constants.dart';
 import 'package:netflix_clone_app/presentation/widgets/main_title.dart';
 import 'package:netflix_clone_app/presentation/widgets/main_card.dart';
 

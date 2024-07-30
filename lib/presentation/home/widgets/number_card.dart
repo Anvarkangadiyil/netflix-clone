@@ -1,7 +1,7 @@
 import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:netflix_clone_app/domain/core/constants.dart';
+import 'package:netflix_clone_app/core/constants.dart';
 
 class NumberCard extends StatelessWidget {
   NumberCard({super.key, required this.index});
